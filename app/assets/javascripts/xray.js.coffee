@@ -64,7 +64,7 @@ Xray.findTemplates = -> util.bm 'findTemplates', ->
 
 # Open the given filesystem path by calling out to Xray's server.
 Xray.open = (path) ->
-  $.ajax(url: "/system_settings/file_editor?file=#{path}")
+  window.open("/system_settings/file_editor?file=#{path}")
 
 # Show the Xray overlay
 Xray.show = (type = null) ->
