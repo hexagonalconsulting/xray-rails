@@ -146,7 +146,6 @@ class Xray.Overlay
   constructor: ->
     Xray.Overlay.singletonInstance = this
     @bar = new Xray.Bar('#xray-bar')
-    @settings = new Xray.Settings('#xray-settings')
     @shownBoxes = []
     @$overlay = $('<div id="xray-overlay">')
     @$overlay.click => @hide()
@@ -211,7 +210,6 @@ class Xray.Bar
     @$el_memo.find('.xray-bar-all-toggler').click       -> Xray.show()
     @$el_memo.find('.xray-bar-templates-toggler').click -> Xray.show('templates')
     @$el_memo.find('.xray-bar-views-toggler').click     -> Xray.show('views')
-    @$el_memo.find('.xray-bar-settings-btn').click      -> Xray.toggleSettings()
     @$el_memo
 
   show: ->
@@ -225,36 +223,7 @@ class Xray.Bar
     $('html').css paddingBottom: @originalPadding
 
 
-class Xray.Settings
-  constructor: (el) ->
-    @el = el
 
-  $el: ->
-    return @$el_memo if @$el_memo? && $.contains(window.document, @$el_memo[0])
-    @$el_memo = $(@el)
-    @$el_memo.find('form').submit @save
-    @$el_memo
-
-  toggle: =>
-    @$el().toggle()
-
-  save: (e) =>
-    e.preventDefault()
-    editor = @$el().find('#xray-editor-input').val()
-    $.ajax
-      url: '/_xray/config'
-      type: 'POST'
-      data: {editor: editor}
-      success: => @displayUpdateMsg(true)
-      error: => @displayUpdateMsg(false)
-
-  displayUpdateMsg: (success) =>
-    if success
-      $msg = $("<span class='xray-settings-success xray-settings-update-msg'>Success!</span>")
-    else
-      $msg = $("<span class='xray-settings-error xray-settings-update-msg'>Uh oh, something went wrong!</span>")
-    @$el().append($msg)
-    $msg.delay(2000).fadeOut(500, => $msg.remove(); @toggle())
 
 
 # Utility methods.

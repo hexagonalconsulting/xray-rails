@@ -242,7 +242,7 @@
       margin: 0;
     }
 
-  #xray-bar .xray-bar-settings-btn {
+  #xray-bar {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -258,67 +258,9 @@
     user-select: none;
   }
 
-    #xray-bar .xray-bar-settings-btn:hover {
+    #xray-bar {
       color: #fff;
     }
-
-#xray-settings {
-  position: absolute;
-  right: 0;
-  bottom: 40px;
-  width: 300px;
-  height: 100px;
-  background: rgba(0,0,0,0.9);
-  padding: 10px;
-  font-size: 14px
-}
-
-  #xray-settings label {
-    display: inline;
-    margin: 2px 10px;
-    padding: 0;
-  }
-
-  #xray-settings input {
-    padding: 5px;
-    display: inline;
-    background: #333;
-    border: 1px solid #666;
-    color: #fff;
-    width: 200px;
-    margin: 0;
-    font-size: 13px;
-    line-height: 13px;
-    border-radius: 3px;
-    vertical-align: middle;
-  }
-
-  #xray-settings button {
-    position: absolute;
-    right: 18px;
-    left: 18px;
-    bottom: 10px;
-    padding: 7px;
-    color: #fff;
-    background: #04be00;
-    text-align: center;
-    cursor: pointer;
-  }
-
-  #xray-settings button:hover {
-    background: #049d00;
-  }
-
-  #xray-settings p {
-    font-size: 12px;
-    color: #666;
-    text-align: center;
-    margin: 10px 0 0 0;
-  }
-
-  #xray-settings .xray-settings-update-msg {
-    margin-left: 12px;
-  }
 
 
 @font-face {
