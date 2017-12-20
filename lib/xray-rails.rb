@@ -50,14 +50,4 @@ module Xray
   def self.next_id
     @id = (@id ||= 0) + 1
   end
-
-  def self.open_file(file)
-    editor = Xray.config.editor
-    cmd = if editor.include?('$file')
-      editor.gsub '$file', file
-    else
-      "#{editor} \"#{file}\""
-    end
-    Open3.capture3(cmd)
-  end
 end
