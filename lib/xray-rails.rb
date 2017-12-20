@@ -2,7 +2,6 @@ require "json"
 require "active_support/all"
 require_relative "xray/version"
 require_relative "xray/aliasing"
-require_relative "xray/config"
 require_relative "xray/middleware"
 
 if defined?(Rails) && Rails.env.development?
@@ -10,7 +9,6 @@ if defined?(Rails) && Rails.env.development?
 end
 
 module Xray
-  FILE_PLACEHOLDER = '$file'
 
   # Used to collect request information during each request cycle for use in
   # the Xray bar.
